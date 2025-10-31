@@ -15,7 +15,7 @@ pipeline {
        stage('push'){
             steps{
                 script{
-                     withDockerRegistry(credentialsId: 'pwdid') {
+                     withDockerRegistry(credentialsId: 'hub') {
                  sh'docker push'
                 }
                
