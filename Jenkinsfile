@@ -12,13 +12,14 @@ pipeline {
                 sh 'docker tag image2 shaikmustafa/paytm:bus'
             }
         }
-        stage('Push') {
-            steps {
-                script {
-                    withDockerRegistry(credentialsId: 'dockerhub') {
-                        sh 'docker push shaikmustafa/paytm:bus'
-                    }
+        stage('push'){
+            steps{
+                script{
+                     withDockerRegistry(credentialsId: 'pwdid') {
+                 sh'docker push'
                 }
+               
+}
             }
         }
         stage ("Deploy") {
