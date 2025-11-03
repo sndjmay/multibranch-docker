@@ -12,14 +12,13 @@ pipeline {
                 sh 'docker tag image2 divya0805/paytm:bus'
             }
         }
-        stage('push'){
-            steps{
-                script{
-                     withDockerRegistry(credentialsId: 'hub') {
-                 sh'docker push divya0805/paytm:bus'
-                }
-               
+        stage('Push') {
+            steps {
+               script {
+                   withDockerRegistry(credentialsId: 'dockerhub') {
+                      sh 'docker push divya0805/paytm:bus'
 }
+               }
             }
         }
         stage ("Deploy") {
